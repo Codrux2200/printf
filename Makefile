@@ -13,7 +13,6 @@ all:	compil_lib compil_my
 
 compil_lib:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
-		cp $(NAME) ..
 
 compil_my: 
 		cp $(NAME2) ../../include
