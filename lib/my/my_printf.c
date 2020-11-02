@@ -5,7 +5,7 @@
 ** my_printf
 */
 #include <stdarg.h>
- #include "my.h"
+#include "my.h"
 
 void prints(char *str)
 {
@@ -34,10 +34,10 @@ void printnbr(int nbr)
         my_put_nbr(nbr);
 }
 
-
 void binary(int nbr)
 {
     char *bin = malloc(nbr * sizeof(char *));
+    
     if (nbr < 0)
         nbr = nbr * -1;
     for (int i = 0; nbr != 0 ; i++){
@@ -64,7 +64,7 @@ void affiche(char str, va_list ap)
             my_putchar(va_arg(ap, char));
             break;
         case 'S':
-            prints(va_arg(ap, char*));
+            prints(va_arg(ap, char *));
             break;
         case 'b':
             binary(va_arg(ap, int));
