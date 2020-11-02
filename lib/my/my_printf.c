@@ -26,7 +26,10 @@ void affiche(char str, va_list ap)
             break;
         case 'd':
             valeurd = va_arg(ap, int);
-            my_put_nbr(valeurd);
+            if (valeurd == 0)
+                my_putchar('0');
+            else
+                my_put_nbr(valeurd);
             break;
         case 'c':
             caract = va_arg(ap, char);
