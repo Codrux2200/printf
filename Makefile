@@ -15,11 +15,15 @@ compil_lib:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
 
 compil_my: 
-		cp $(NAME2) ../../include
+		cp $(NAME2) ./include
+		
 
 clean:
 		rm -f $(OBJ)
 
 fclean:	clean
 		rm libmy.a
+		rm include/my.h
+
+re: fclean all
 
