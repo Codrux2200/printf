@@ -5,13 +5,7 @@
 ** my_printf
 */
 #include <stdarg.h>
-
-char *my_revstr(char *str);
-void my_putchar(char c);
-int my_putstr(char const *str);
-int my_put_nbr(int nb);
-int my_strlen(char *str);
-int *convert(char c);
+ #include "my.h"
 
 void prints(char *str)
 {
