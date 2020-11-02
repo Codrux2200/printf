@@ -2,6 +2,7 @@ SRC     =       ./lib/my/my_putchar.c	\
                 ./lib/my/my_put_nbr.c	\
                 ./lib/my/my_putstr.c	\
 				./lib/my/my_printf.c   \
+				./lib/my/my_strcpy.c   \
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -14,7 +15,7 @@ all:	compil_lib compil_my
 compil_lib:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
 
-compil_my: 
+compil_my:
 		cp $(NAME2) ./include
 		
 

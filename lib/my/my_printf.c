@@ -12,6 +12,58 @@ int my_strlen(char *str){
     return (i);
 }
 
+int *convert(char c)
+{
+    int *tab = malloc (2 * sizeof(int));
+    int i = 0;
+    int count = 3;
+
+    for (int s = 0, v = 0; v != c; v++){
+        if (s == 7){
+            s = 0;
+            count --;
+            i += 3;
+        } else {
+            i++;
+            s++;
+        }
+    }
+    tab[0] = i;
+    if (i < 9)
+        tab[1] = count - 1;
+    else
+        tab[1] = count;
+    return (tab);
+}
+
+
+void prints(char *str)
+{
+    int *tab = malloc (2 * sizeof(int));
+
+    for (int i = 0; i != my_strlen(str); i++){
+        if (str[i] <= 32 || str[i] >= 127){
+            tab = convert(str[i]);
+            my_putchar('\\');
+                for (int v = 0; v != tab[1], tab[0] < 100; v++)
+                    my_putchar('0');
+                my_put_nbr(tab[0]);
+        } else
+            my_putchar(str[i]);
+        }
+}
+
+
+void printnbr(int nbr){
+
+    if (nbr == 0)
+        my_putchar('0');
+    else if (nbr < 0){
+        my_putchar('-');
+        my_put_nbr(nbr * -1);
+    } else
+        my_put_nbr(nbr);
+}
 
 void affiche(char str, va_list ap)
 {
@@ -26,15 +78,20 @@ void affiche(char str, va_list ap)
             break;
         case 'd':
             valeurd = va_arg(ap, int);
-            if (valeurd == 0)
-                my_putchar('0');
-            else
-                my_put_nbr(valeurd);
+            printnbr(valeurd);
             break;
         case 'c':
             caract = va_arg(ap, char);
             my_putchar(caract);
             break;
+        case 'S':
+            valeur = va_arg(ap, char*);
+            prints(valeur);
+            break;
+        case 'b':
+            valeur = va_arg(ap, int);
+            binary(valeur);
+            break;     
     }
 }
 
