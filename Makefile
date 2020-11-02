@@ -3,6 +3,9 @@ SRC     =       ./lib/my/my_putchar.c	\
                 ./lib/my/my_putstr.c	\
 				./lib/my/my_printf.c   \
 				./lib/my/my_strcpy.c   \
+				./lib/my/my_revstr.c  \
+				./lib/my/my_strlen.c 	\
+				./lib/my/convert.c   \
 
 OBJ		=	$(SRC:.c=.o)
 

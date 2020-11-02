@@ -6,36 +6,12 @@
 */
 #include <stdarg.h>
 
-int my_strlen(char *str){
-    int i = 0;
-    for (i = 0; str[i] != '\0'; i++);
-    return (i);
-}
-
-int *convert(char c)
-{
-    int *tab = malloc (2 * sizeof(int));
-    int i = 0;
-    int count = 3;
-
-    for (int s = 0, v = 0; v != c; v++){
-        if (s == 7){
-            s = 0;
-            count --;
-            i += 3;
-        } else {
-            i++;
-            s++;
-        }
-    }
-    tab[0] = i;
-    if (i < 9)
-        tab[1] = count - 1;
-    else
-        tab[1] = count;
-    return (tab);
-}
-
+char *my_revstr(char *str);
+void my_putchar(char c);
+int my_putstr(char const *str);
+int my_put_nbr(int nb);
+int my_strlen(char *str);
+int *convert(char c);
 
 void prints(char *str)
 {
@@ -53,9 +29,8 @@ void prints(char *str)
         }
 }
 
-
-void printnbr(int nbr){
-
+void printnbr(int nbr)
+{
     if (nbr == 0)
         my_putchar('0');
     else if (nbr < 0){
@@ -65,32 +40,40 @@ void printnbr(int nbr){
         my_put_nbr(nbr);
 }
 
+
+void binary(int nbr)
+{
+    char *bin = malloc(nbr * sizeof(char *));
+    if (nbr < 0)
+        nbr = nbr * -1;
+    for (int i = 0; nbr != 0 ; i++){
+        if (nbr % 2 == 0)
+            bin[i] = '0';
+        else
+            bin[i] = '1';
+        nbr = nbr / 2;
+    } 
+    bin = my_revstr(bin);
+    my_putstr(bin);
+}
+
 void affiche(char str, va_list ap)
 {
-    char *valeur;
-    char caract;
-    int valeurd;
-
     switch (str){
         case 's':
-            valeur = va_arg(ap, char *);
-            my_putstr(valeur);
+            my_putstr(va_arg(ap, char *));
             break;
         case 'd':
-            valeurd = va_arg(ap, int);
-            printnbr(valeurd);
+            printnbr(va_arg(ap, int));
             break;
         case 'c':
-            caract = va_arg(ap, char);
-            my_putchar(caract);
+            my_putchar(va_arg(ap, char));
             break;
         case 'S':
-            valeur = va_arg(ap, char*);
-            prints(valeur);
+            prints(va_arg(ap, char*));
             break;
         case 'b':
-            valeur = va_arg(ap, int);
-            binary(valeur);
+            binary(va_arg(ap, int));
             break;     
     }
 }
