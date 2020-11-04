@@ -15,9 +15,12 @@ void prints(char *str)
         if (str[i] <= 32 || str[i] >= 127){
             tab = convert(str[i]);
             my_putchar('\\');
-            for (int v = 0; v != tab[1] ; v++)
-                my_putchar('0');
-            my_put_nbr(tab[0]);
+            if (str[i] < 100){
+                for (int v = 0; v != tab[1] ; v++)
+                    my_putchar('0');
+                my_put_nbr(tab[0]);
+            }else
+                my_put_nbr(177);
         } else
             my_putchar(str[i]);
     }

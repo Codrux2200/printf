@@ -9,7 +9,6 @@ int *convert(char c)
     int *tab = malloc (2 * sizeof(int));
     int i = 0;
     int count = 3;
-
     for (int s = 0, v = 0; v != c; v++){
         if (s == 7){
             s = 0;
@@ -22,9 +21,9 @@ int *convert(char c)
     }
     tab[0] = i;
     if (i < 9)
-        tab[1] = count - 1;
+        tab[1] = 2;
     else
-        tab[1] = count - 1;
+        tab[1] = 1;
     return (tab);
 }
 
