@@ -9,18 +9,18 @@
 
 void prints(char *str)
 {
-    int *tab = malloc (2 * sizeof(int));
+    int *tab = malloc (2 * sizeof(int *));
 
     for (int i = 0; i != my_strlen(str); i++){
         if (str[i] <= 32 || str[i] >= 127){
             tab = convert(str[i]);
             my_putchar('\\');
-                for (int v = 0; v != tab[1], tab[0] < 100; v++)
-                    my_putchar('0');
-                my_put_nbr(tab[0]);
+            for (int v = 0; v != tab[1] ; v++)
+                my_putchar('0');
+            my_put_nbr(tab[0]);
         } else
             my_putchar(str[i]);
-        }
+    }
 }
 
 void binary(int nbr)

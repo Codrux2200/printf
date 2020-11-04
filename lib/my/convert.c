@@ -24,7 +24,7 @@ int *convert(char c)
     if (i < 9)
         tab[1] = count - 1;
     else
-        tab[1] = count;
+        tab[1] = count - 1;
     return (tab);
 }
 
