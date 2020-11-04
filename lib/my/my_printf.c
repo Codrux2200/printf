@@ -50,7 +50,7 @@ void switch2(char str, va_list ap)
             my_put_nbr(octal(va_arg(ap, int)));
             break;
         case 'u':
-            my_put_nbr(choose(va_arg(ap, int));
+            my_put_nbr(choose(va_arg(ap, int)));
             break;
     }
 
