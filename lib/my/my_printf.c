@@ -23,17 +23,6 @@ void prints(char *str)
         }
 }
 
-void printnbr(int nbr)
-{
-    if (nbr == 0)
-        my_putchar('0');
-    else if (nbr < 0){
-        my_putchar('-');
-        my_put_nbr(nbr * -1);
-    } else
-        my_put_nbr(nbr);
-}
-
 void binary(int nbr)
 {
     char *bin = malloc(nbr * sizeof(char *));
@@ -51,6 +40,23 @@ void binary(int nbr)
     my_putstr(bin);
 }
 
+void switch2(char str, va_list ap)
+{
+    switch(str){
+        case'i':
+            my_put_nbr(va_arg(ap, int));
+            break;
+        case 'o':
+            my_put_nbr(octal(va_arg(ap, int)));
+            break;
+        case 'u':
+            my_put_nbr(choose(va_arg(ap, int));
+            break;
+    }
+
+}
+
+
 void affiche(char str, va_list ap)
 {
     switch (str){
@@ -58,7 +64,7 @@ void affiche(char str, va_list ap)
             my_putstr(va_arg(ap, char *));
             break;
         case 'd':
-            printnbr(va_arg(ap, int));
+            my_put_nbr(va_arg(ap, int));
             break;
         case 'c':
             my_putchar(va_arg(ap, char));
@@ -68,8 +74,9 @@ void affiche(char str, va_list ap)
             break;
         case 'b':
             binary(va_arg(ap, int));
-            break;     
+            break;    
     }
+    switch2(str,ap);
 }
 
 char *my_printf(char *str, ...)

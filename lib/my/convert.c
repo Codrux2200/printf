@@ -27,3 +27,26 @@ int *convert(char c)
         tab[1] = count;
     return (tab);
 }
+
+
+int octal(int nbr)
+{
+    int i = 0;
+    for (int s = 0, v = 0; v != nbr; v++){
+        if (s == 7){
+            s = 0;
+            i += 3;
+        } else {
+            i++;
+            s++;
+        }
+    }
+    return (i);
+}
+
+void choose(int nbr){
+    if (nbr > 0)
+        return (nbr);
+    else
+        return (nbr * -1);
+}
