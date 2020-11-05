@@ -43,7 +43,8 @@ int octal(int nbr)
     return (i);
 }
 
-void choose(int nbr){
+void choose(int nbr)
+{
     if (nbr > 0)
         return (nbr);
     else

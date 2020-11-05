@@ -91,6 +91,8 @@ char *my_printf(char *str, ...)
 
     for(int i = 0; str[i] != '\0'; i++) {
         if(str[i] == '%' && i != my_strlen(str) - 1){
+            if (str[i - 2] == '%' && str[i - 4] != '%' )
+                my_putchar('%');
             affiche(str[i + 1], ap);
             i++;
         }else{

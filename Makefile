@@ -19,6 +19,7 @@ compil_lib:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
 
 compil_my:
+		gcc -o my_printf main.c libmy.a
 		cp $(NAME2) ./include
 		
 
