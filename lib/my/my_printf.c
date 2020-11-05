@@ -88,10 +88,9 @@ char *my_printf(char *str, ...)
     va_start(ap, str);
     char *tab = malloc(my_strlen(str) * sizeof(char *));
     int index = 0;
-
     for(int i = 0; str[i] != '\0'; i++) {
-        if(str[i] == '%' && i != my_strlen(str) - 1){
-            if (str[i - 2] == '%' && str[i - 4] != '%' )
+        if(str[i] == '%' && i != my_strlen(str) - 1) {
+            if (str[i + 1] == '%')
                 my_putchar('%');
             affiche(str[i + 1], ap);
             i++;
