@@ -27,6 +27,7 @@ clean:
 		rm -f $(OBJ)
 
 fclean:	clean
+		rm my_printf
 		rm libmy.a
 		rm include/my.h
 

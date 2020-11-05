@@ -4,11 +4,14 @@
 ** File description:
 ** convert
 */
+#include "my.h"
+
 int *convert(char c)
 {
     int *tab = malloc (2 * sizeof(int));
     int i = 0;
     int count = 3;
+
     for (int s = 0, v = 0; v != c; v++){
         if (s == 7){
             s = 0;
@@ -28,19 +31,14 @@ int *convert(char c)
 }
 
 
-int octal(int nbr)
+void octal(int nbr)
 {
-    int i = 0;
-    for (int s = 0, v = 0; v != nbr; v++){
-        if (s == 7){
-            s = 0;
-            i += 3;
-        } else {
-            i++;
-            s++;
-        }
+    char *result = malloc(10 * sizeof(char *));
+    for (int v = 0; nbr != 0; v++){
+        result[v] = (nbr % 8) + 48;
+        nbr = nbr / 8;
     }
-    return (i);
+    my_putstr(my_revstr(result));
 }
 
 void choose(int nbr)

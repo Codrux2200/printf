@@ -28,15 +28,18 @@ void prints(char *str)
 
 void binary(int nbr)
 {
-    char *bin = malloc(nbr * sizeof(char *));
-    
-    if (nbr < 0)
+    char *bin = malloc(10 * sizeof(char *));
+    char *choice = "01";
+
+    if (nbr < 0){
         nbr = nbr * -1;
+        choice = my_revstr(choice);
+    }
     for (int i = 0; nbr != 0 ; i++){
         if (nbr % 2 == 0)
-            bin[i] = '0';
+            bin[i] = choice[0];
         else
-            bin[i] = '1';
+            bin[i] = choice[1];
         nbr = nbr / 2;
     } 
     bin = my_revstr(bin);
@@ -50,15 +53,10 @@ void switch2(char str, va_list ap)
             my_put_nbr(va_arg(ap, int));
             break;
         case 'o':
-            my_put_nbr(octal(va_arg(ap, int)));
-            break;
-        case 'u':
-            my_put_nbr(choose(va_arg(ap, int)));
+            octal(va_arg(ap, int));
             break;
     }
-
 }
-
 
 void affiche(char str, va_list ap)
 {

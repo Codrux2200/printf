@@ -14,5 +14,6 @@ int my_put_nbr(int nb);
 int my_strlen(char *str);
 int *convert(char c);
 char *my_printf(char *str, ...);
-int octal(int nbr);
+void octal(int nbr);
+int my_getnbr(char *str);
 #endif /* !MY_H_ */
