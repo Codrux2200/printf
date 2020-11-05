@@ -94,7 +94,7 @@ char *my_printf(char *str, ...)
                 my_putchar('%');
             affiche(str[i + 1], ap);
             i++;
-        }else{
+        } else {
             my_putchar(str[i]);
         }
     }
