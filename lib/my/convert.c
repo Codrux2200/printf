@@ -41,10 +41,57 @@ void octal(int nbr)
     my_putstr(my_revstr(result));
 }
 
-void choose(int nbr)
+void unsigned_int(int nbr)
 {
-    if (nbr > 0)
-        return (nbr);
-    else
-        return (nbr * -1);
+    if (nbr < 0){
+        write(2,"ERROR NEGATIF NUMBER ON AN UNSIGNED INT FUNCTION\n",50);
+        return(84);
+    } else
+        my_put_nbr(nbr);
+        
+}
+
+int getmalloc(int nbr)
+{
+    int i = 0;
+
+    for (i = 0; nbr != 1; nbr = nbr / 10, i++);
+    return (i);
+}
+
+void hexadecimal_lower(int nbr)
+{
+    int *tab = malloc(getmalloc(nbr) * sizeof(int));
+    char *alphab = "abcdef";
+    char *rep = malloc (getmalloc(nbr) * sizeof(char));
+    int i = 0;
+
+    for (i = 0; nbr > 0; i++, nbr = nbr / 16)
+        tab[i] = nbr % 16;
+    for (int v = 0; v != i; v++){
+        if (tab[v] > 10){
+            rep[v] = alphab[tab[v] % 10];
+        } else
+            rep[v] = tab[v] + 48;
+    }
+    my_putstr(my_revstr(rep));
+}
+
+void hexadecimal_upper(int nbr)
+{
+    int *tab = malloc(nbr * sizeof(int));
+    char *alphab = "ABCDEF";
+    char *rep = malloc (nbr * sizeof(char));
+    int i = 0;
+
+    for (i = 0; nbr > 0; i++ , nbr = nbr / 16)
+        tab[i] = nbr % 16;
+    for (int v = 0; v != i; v++){
+        if (tab[v] > 10){
+            rep[v] = alphab[tab[v] % 10];
+        } else
+            rep[v] = tab[v] + 48;
+    }
+    my_putstr(my_revstr(rep));
+
 }

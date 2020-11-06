@@ -19,7 +19,6 @@ compil_lib:	$(OBJ)
 		ar rc $(NAME) $(OBJ)
 
 compil_my:
-		gcc -o my_printf main.c libmy.a
 		cp $(NAME2) ./include
 		
 
@@ -27,7 +26,6 @@ clean:
 		rm -f $(OBJ)
 
 fclean:	clean
-		rm my_printf
 		rm libmy.a
 		rm include/my.h
 

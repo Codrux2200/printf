@@ -16,4 +16,8 @@ int *convert(char c);
 char *my_printf(char *str, ...);
 void octal(int nbr);
 int my_getnbr(char *str);
+void unsigned_int(int nbr);
+int getmalloc(int nbr);
+void hexadecimal_lower(int nbr);
+void hexadecimal_upper(int nbr);
 #endif /* !MY_H_ */

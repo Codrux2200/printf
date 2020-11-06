@@ -29,17 +29,15 @@ void prints(char *str)
 void binary(int nbr)
 {
     char *bin = malloc(10 * sizeof(char *));
-    char *choice = "01";
+    int negatif = 0;
 
-    if (nbr < 0){
+    if (nbr < 0)
         nbr = nbr * -1;
-        choice = my_revstr(choice);
-    }
     for (int i = 0; nbr != 0 ; i++){
         if (nbr % 2 == 0)
-            bin[i] = choice[0];
+            bin[i] = '0';
         else
-            bin[i] = choice[1];
+            bin[i] = '1';
         nbr = nbr / 2;
     } 
     bin = my_revstr(bin);
@@ -54,6 +52,15 @@ void switch2(char str, va_list ap)
             break;
         case 'o':
             octal(va_arg(ap, int));
+            break;
+        case 'u':
+            unsigned_int(va_arg(ap, int));
+            break;
+        case 'x':
+            hexadecimal_lower(va_arg(ap, int));
+            break;
+        case 'X':
+            hexadecimal_upper(va_arg(ap, int));
             break;
     }
 }
